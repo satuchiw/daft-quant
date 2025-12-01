@@ -1,4 +1,6 @@
-# Quantitative Trading System
+# Daft Quant
+
+A Quantitative Trading System for Chinese A-Shares
 
 ## Project Overview
 This project is a comprehensive quantitative trading system designed to handle the entire lifecycle of algorithmic trading, specifically optimized for **Chinese A-shares**. It covers data acquisition, strategy development, and high-fidelity backtesting.
@@ -38,7 +40,7 @@ This project is a comprehensive quantitative trading system designed to handle t
 
 ## Project Structure
 ```
-real quant/
+daft-quant/
 ├── src/
 │   ├── backtest/       # Backtest engine and runner
 │   ├── data/           # Data fetching and storage logic

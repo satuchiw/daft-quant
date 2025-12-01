@@ -1,0 +1,31 @@
+# Project History Log
+
+## [2025-11-24] Project Initialization
+- Created project structure.
+- Defined `AI_RULES.md` (migrated to `.winsurfrules`).
+- Created `README.md` with module definitions.
+
+## [2025-11-25] Module 1: Data Acquisition
+- Implemented `src/data/data_loader.py` (DataManager).
+- **Source Change:** Switched from Baostock to Mini-QMT (`xtquant`).
+- **Features:**
+    - Automatic local caching (CSV).
+    - Incremental download via `xtdata`.
+    - Data visualization with `mplfinance`.
+- **Verification:** Successfully ran `main.py` to fetch and plot `000001.SZ` (Ping An Bank) from 2012-2023.
+
+## [2025-11-26] Module 3: Strategy Module
+- Implemented `src/strategy/base_strategy.py`: Defines abstract base class for independence.
+- Implemented Example Strategies:
+    - `MACrossoverStrategy`: Simple Moving Average crossover.
+    - `RSIStrategy`: Relative Strength Index strategy.
+- **Design:** Strategies are purely signal generators (buy/sell/hold) and do not handle execution or data loading.
+
+## [2025-11-27] Module 4: Backtest Module
+- Implemented `src/backtest/engine.py`: Event-driven backtester.
+- **Features:**
+    - **T+1 Trading Rule:** Enforced via `frozen_position` logic for A-shares.
+    - **Transaction Costs:** Configurable commission, slippage, and stamp duty (sell-side).
+    - **Performance Metrics:** `PerformanceAnalyzer` calculates Sharpe, Drawdown, Win Rate, etc.
+    - **Batch Processing:** `BacktestRunner` allows backtesting a list of tickers (Stock/ETF) automatically.
+- **Verification:** Created `run_analysis.py` to demonstrate batch backtesting on `000001.SZ` using local data.
